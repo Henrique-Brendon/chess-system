@@ -22,7 +22,7 @@ public class Board {
 		return columns;
 	}
 	
-	// Acessar uma peça, em uma determinada linha e coluna
+	// Access a part, in a given row and column
 	public Piece piece(int row, int column) {
 		if(!positionExists(row, column)) {
 			throw new BoardException("Position not on the board");
@@ -36,7 +36,7 @@ public class Board {
 		}
 		return pieces[position.getRow()][position.getColumn()];
 	}
- 	// Colocar uma peça em uma determinada posição
+ 	// Placing a part in a certain position
 	public void placePiece(Piece piece, Position position) {
 		if(thereIsApiece(position)) {
 			throw new BoardException("There is already a piece on position " + position);
@@ -44,6 +44,8 @@ public class Board {
 		pieces[position.getRow()][position.getColumn()] = piece;
 		piece.position =  position;
 	}
+	
+	// Defensive programming methods
 	private boolean positionExists(int row, int column) {
 		return row >= 0 && row < rows && column >= 0 && column < columns;
 	}
