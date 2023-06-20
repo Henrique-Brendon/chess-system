@@ -18,8 +18,16 @@ public abstract class ChessPiece extends Piece {
 		return color;
 	}
 	
+	// Regras do xeque 
+	public ChessPosition getChessPosition() {
+		return ChessPosition.fromPosition(position);
+	}
+	
 	protected boolean isThereOpponnentPiece(Position position) {
 		ChessPiece p = (ChessPiece)getBoard().piece(position);
 		return p != null && p.getColor() != color;
 	}
+	
+	
+	
 }
