@@ -27,16 +27,16 @@ public abstract class ChessPiece extends Piece {
 		moveCount++;
 	}
 	
-	public void decraseMoveCount() {
-		moveCount++;
+	public void decreaseMoveCount() {
+		moveCount--;
 	}
 	
-	// Regras do xeque 
+	// rules of check
 	public ChessPosition getChessPosition() {
 		return ChessPosition.fromPosition(position);
 	}
 	
-	protected boolean isThereOpponnentPiece(Position position) {
+	protected boolean isThereOpponentPiece(Position position) {
 		ChessPiece p = (ChessPiece)getBoard().piece(position);
 		return p != null && p.getColor() != color;
 	}

@@ -25,7 +25,7 @@ public class Program {
 				System.out.print("Source: ");
 				ChessPosition source = UI.readChessPosition(sc);
 				
-				boolean[][] possibleMoves = chessMatch.posibleMoves(source);
+				boolean[][] possibleMoves = chessMatch.possibleMoves(source);
 				UI.clearScreen();
 				UI.printBoard(chessMatch.getPieces(), possibleMoves);				
 				System.out.println();
@@ -36,6 +36,11 @@ public class Program {
 				
 				if(capturedPiece != null) {
 					captured.add(capturedPiece);
+				}
+				if(chessMatch.getPromoted() != null) {
+					System.out.print("Enter piece for promotion (B/N/R/Q): ");
+					String type = sc.nextLine();
+					chessMatch.replacePromotedPiece(type);
 				}
 			
 			}catch(ChessException e) {
